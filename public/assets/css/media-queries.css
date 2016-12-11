@@ -24,6 +24,15 @@
 
 }
 
+@media (min-width: 768px) {
+
+	/* logo */
+    .navbar-brand {
+    	background-image: url(../img/moonlight.png) !important; background-repeat: no-repeat !important; background-size: 150px 90px !important;
+    }
+
+}
+
 @media (max-width: 860px) {
 	
 	.flex-direction-nav a { top: 30px; width: 30px; height: 30px; padding-top: 7px; }
@@ -64,6 +73,11 @@
 	.footer-copyright, .footer-social { text-align: center; }
 	.footer-social a { margin: 0 5px; }
 
+	/* logo */
+    .navbar-brand {
+    	background-image: url(../img/moonlight.png) !important; background-repeat: no-repeat !important; background-size: 120px 72px !important;
+    }
+
 }
 
 @media (max-width: 400px) {
@@ -83,9 +97,5 @@ only screen and (        min-device-pixel-ratio: 2),
 only screen and (                min-resolution: 192dpi),
 only screen and (                min-resolution: 2dppx) {
 	
-	/* logo */
-    .navbar-brand {
-    	background-image: url(../img/moonlight.png) !important; background-repeat: no-repeat !important; background-size: 150px 90px !important;
-    }
 	
 }
