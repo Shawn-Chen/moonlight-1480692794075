@@ -85,7 +85,7 @@ only screen and (                min-resolution: 2dppx) {
 	
 	/* logo */
     .navbar-brand {
-    	background-image: url(../img/moonlight.png) !important; background-repeat: no-repeat !important; background-size: 167px 63px !important;
+    	background-image: url(../img/moonlight.png) !important; background-repeat: no-repeat !important; background-size: 150px 90px !important;
     }
 	
 }
