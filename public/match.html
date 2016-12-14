@@ -7,12 +7,15 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Moonlight - We love tennis</title>
-
+        <!-- Javascript -->
+        <script src="assets/js/jquery-1.11.1.min.js"></script>
+        <script src="assets/js/jquery.bracket.min.js"></script>
         <!-- CSS -->
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400italic,400">
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Sans">
-        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lobster">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,400">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Droid+Sans">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lobster">
         <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="assets/css/jquery.bracket.min.css">
         <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
         <link rel="stylesheet" href="assets/css/animate.css">
         <link rel="stylesheet" href="assets/css/magnific-popup.css">
@@ -20,6 +23,7 @@
         <link rel="stylesheet" href="assets/css/form-elements.css">
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/media-queries.css">
+
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -76,60 +80,43 @@
               </ul>
             </li>
             <li>
-              <a href="login.html"><i class="fa fa-users"></i><br>Login</a>
+              <a href="login.html"><i class="fa fa-user"></i><br>Login</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-        <!-- Slider -->
-        <div class="slider-container">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-10 col-sm-offset-1 slider">
-                        <div class="flexslider">
-                            <ul class="slides">
-                                <li data-thumb="assets/img/slider/1.jpg">
-                                    <img src="assets/img/slider/1.jpg">
-                                    <div class="flex-caption">
-                                      We have partner.（1117@台北網球場)
-                                    </div>
-                                </li>
-                                <li data-thumb="assets/img/slider/2.jpg">
-                                    <img src="assets/img/slider/2.jpg">
-                                    <div class="flex-caption">
-                                      We have power. （1112@陽光盃)
-                                    </div>
-                                </li>
-                                <li data-thumb="assets/img/slider/3.jpg">
-                                    <img src="assets/img/slider/3.jpg">
-                                    <div class="flex-caption">
-                                      We are good-looking. (1112@陽光盃)
-                                    </div>
-                                </li>
-                                <li data-thumb="assets/img/slider/4.jpg">
-                                    <img src="assets/img/slider/4.jpg">
-                                    <div class="flex-caption">
-                                      We enjoy life. (0831@GB鮮釀)
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- Presentation -->
         <div class="presentation-container">
           <div class="container">
             <div class="row">
               <div class="col-sm-12 wow fadeInLeftBig">
-                  <h1>We are <span class="violet">Moonlight Tennis</span>, a super cool tennis club.</h1>
-                  <p>Because of tennis, we met each other.</p>
+                <div id="minimal">
+                    <div class="demo"></div>
                 </div>
+                <script>
+
+                    var minimalData = {
+                        teams : [
+                          ["Team 1", "Team 2"], /* first matchup */
+                          ["Team 3", "Team 4"]  /* second matchup */
+                        ],
+                        results : [
+                          [[1,2], [3,4]],       /* first round */
+                          [[4,6], [2,1]]        /* second round */
+                        ]
+                      }
+                     
+                    $(function() {
+                        $('#minimal .demo').bracket({
+                          init: minimalData /* data to initialize the bracket with */ })
+                      })
+
+                </script>
               </div>
+            </div>
           </div>
         </div>
 
@@ -171,7 +158,6 @@
         </footer>
 
         <!-- Javascript -->
-        <script src="assets/js/jquery-1.11.1.min.js"></script>
         <script src="assets/bootstrap/js/bootstrap.min.js"></script>
         <script src="assets/js/bootstrap-hover-dropdown.min.js"></script>
         <script src="assets/js/jquery.backstretch.min.js"></script>
@@ -181,10 +167,8 @@
         <script src="assets/flexslider/jquery.flexslider-min.js"></script>
         <script src="assets/js/jflickrfeed.min.js"></script>
         <script src="assets/js/masonry.pkgd.min.js"></script>
-        <script src="http://maps.google.com/maps/api/js?sensor=true"></script>
         <script src="assets/js/jquery.ui.map.min.js"></script>
         <script src="assets/js/scripts.js"></script>
-
     </body>
 
 </html>
