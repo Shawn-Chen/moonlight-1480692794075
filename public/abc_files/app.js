@@ -1,1 +1,0 @@
-define(["jquery","backbone","views/baseView","util/pageTransitions","jquery.cookie"],function(e,n,i,r){var t;return t=i.View.extend({el:"#backbonePlaceholder",navigateTo:function(e){var n;return n=this,r.get().transitionStart(),e.render({page:!0})}})});

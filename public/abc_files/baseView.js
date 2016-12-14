@@ -1,1 +1,0 @@
-define(["jquery","backbone","underscore"],function(e,n){var r;return r={View:n.View.extend({initialize:function(){return this.router=new app.Router},render:function(e){return e=e||{},this}})}});

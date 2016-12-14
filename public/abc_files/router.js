@@ -1,1 +1,0 @@
-define(["jquery","backbone"],function(t,e){var n;return n=e.Router.extend({routes:{"*actions":"defaultAction"},defaultAction:function(){var t;return t=new app.Views.DefaultAction,app.instance.navigateTo(t)},trackPageView:function(){var t;return t="/"+e.history.getFragment(),app.Analytics.trackPageView(t,document.title)}})});
