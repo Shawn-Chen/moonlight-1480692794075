@@ -13,7 +13,7 @@
 	</div>
 	<script>
 
-		var minimalData = {
+		var matchData = {
 		    "teams" : [
 		      ["Randy", null],
 		      ["Kelvin", null], 
@@ -37,12 +37,6 @@
 		 * data:     changed bracket object in format given to init
 		 * userData: optional data given when bracket is created.
 		 */
-		 function callback() {
-		 	this.disableToolbar = true; 
-		 	this.disableTeamEdit = true;
-		 }
-		 var p1 = {disableToolbar:true};
-		 var p2 = {disableTeamEdit:true};
 		function saveFn(data, userData, p1, p2) {
 
 		  	$('#saveOutput').text('POST '+userData);
@@ -54,15 +48,14 @@
 
 		  */
 
-		  console.log(JSON.stringify(data)+'shawn' + userData);
 		}		 
 		$(function() {
 		    var container = $('div#save .demo');
 		    container.bracket({
-		      init: minimalData, /* data to initialize the bracket with */ 
+		      init: matchData, /* data to initialize the bracket with */ 
 		      save: saveFn,
 		      disableToolbar: true,
-		      //disableTeamEdit: true
+		      disableTeamEdit: true
 		  	})
 		  })
 
