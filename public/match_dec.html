@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 		<title>Tournament Bracket Generator</title>
         <script src="assets/js/jquery-1.11.1.min.js"></script>
         <script src="assets/js/jquery.bracket.min.js"></script>
@@ -29,27 +30,39 @@
 		      [[null, null],[null, null]],
 		      [[null, null]]
 		    ]
+
 		  }
 		/* Called whenever bracket is modified
 		 *
 		 * data:     changed bracket object in format given to init
 		 * userData: optional data given when bracket is created.
 		 */
-		function saveFn(data, userData) {
-		  var json = jQuery.toJSON(data)
-		  $('#saveOutput').text('POST '+userData+' '+json)
+		 function callback() {
+		 	this.disableToolbar = true; 
+		 	this.disableTeamEdit = true;
+		 }
+		 var p1 = {disableToolbar:true};
+		 var p2 = {disableTeamEdit:true};
+		function saveFn(data, userData, p1, p2) {
+
+		  	$('#saveOutput').text('POST '+userData);
 		  /* You probably want to do something like this
 		  jQuery.ajax("rest/"+userData, {contentType: 'application/json',
 		                                dataType: 'json',
 		                                type: 'post',
 		                                data: json})
+
 		  */
+
+		  console.log(JSON.stringify(data)+'shawn' + userData);
 		}		 
 		$(function() {
 		    var container = $('div#save .demo');
 		    container.bracket({
 		      init: minimalData, /* data to initialize the bracket with */ 
-		      save: saveFn
+		      save: saveFn,
+		      disableToolbar: true,
+		      //disableTeamEdit: true
 		  	})
 		  })
 
