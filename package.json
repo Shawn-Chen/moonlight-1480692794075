@@ -8,7 +8,8 @@
 	"dependencies": {
 		"express": "4.13.x",
 		"cfenv": "1.0.x",
-		"jquery-bracket": "0.11.0"
+		"jquery-bracket": "0.11.0",
+		"cloudant": "1.4.x"
 	},
 	"repository": {},
 	"engines": {
