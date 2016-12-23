@@ -5,14 +5,16 @@
 		<title>Tournament Bracket Generator</title>
         <script src="assets/js/jquery-1.11.1.min.js"></script>
         <script src="assets/js/jquery.bracket.min.js"></script>
+        <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" type="text/css" href="assets/css/jquery.bracket.min.css">
 	</head>
 	<body>
+	<i class="fa fa-mars fa-lg" aria-hidden="true"></i>
+	<i class="fa fa-venus fa-lg" aria-hidden="true"></i>
 	<div id="save">
 	<div class="demo"></div>
 	</div>
 	<script>
-
 		var matchData = {
 		    "teams" : [
 		      ["Randy", null],
@@ -25,13 +27,22 @@
 		      ["Figo", null]
 		    ],
 		    "results" : [
-		      [[null, null],[null, null],[null, null],[null, null],[null, null],[null, null],[null, null],[null, null]],
-		      [[null, null],[null, null],[null, null],[null, null]],
-		      [[null, null],[null, null]],
-		      [[null, null]]
+			    [
+			      [[null, null],[null, null],[null, null],[null, null],[null, null],[null, null],[null, null],[null, null]],
+			      [[null, null],[null, null],[null, null],[null, null]],
+			      [[null, null],[null, null]],
+			      [[null, null]]
+			    ],
+			    [
+			      []
+
+			    ]
 		    ]
 
-		  }
+		  };
+		$.get('getmale0', function(data){
+			matchData = data;
+		});
 		/* Called whenever bracket is modified
 		 *
 		 * data:     changed bracket object in format given to init
@@ -39,7 +50,6 @@
 		 */
 		function saveFn(data, userData, p1, p2) {
 
-		  	$('#saveOutput').text('POST '+userData);
 		  /* You probably want to do something like this
 		  jQuery.ajax("rest/"+userData, {contentType: 'application/json',
 		                                dataType: 'json',
@@ -47,17 +57,24 @@
 		                                data: json})
 
 		  */
+		  $.post('/matchmale0', {bracket: matchData});
 
 		}		 
 		$(function() {
-		    var container = $('div#save .demo');
-		    container.bracket({
-		      init: matchData, /* data to initialize the bracket with */ 
-		      save: saveFn,
-		      disableToolbar: true,
-		      disableTeamEdit: true
-		  	})
-		  })
+			//$.get('getmale0', function(data){
+			//	matchData = data;
+				var container = $('div#save .demo');
+			    container.bracket({
+			      init: matchData, /* data to initialize the bracket with */ 
+			      save: saveFn,
+			      disableToolbar: true,
+			      disableTeamEdit: true
+			  	});
+			//});
+			$.get('getmale0', function(data){
+				console.log(data);
+			});
+		  });
 
 	</script>
 	</body>
