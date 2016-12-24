@@ -4,11 +4,15 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 		<title>Tournament Bracket Generator</title>
         <script src="assets/js/jquery-1.11.1.min.js"></script>
-        <script src="assets/js/jquery.bracket.min.js"></script>
+        <script src="assets/js/jquery.group.min.js"></script>
+        <script src="assets/js/lodash.min.js"></script>
+        <script src="assets/js/Bacon.min.js"></script>
+        <script src="assets/js/handlebars.min-latest.js"></script>
         <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css">
-		<link rel="stylesheet" type="text/css" href="assets/css/jquery.bracket.min.css">
+		<link rel="stylesheet" type="text/css" href="assets/css/jquery.group.min.css">
 	</head>
 	<body>
+	<h1>Still under construction</h1>
 	<div id="save">
 	<div class="demo"></div>
 	</div>
@@ -19,7 +23,7 @@
 		 * data:     changed bracket object in format given to init
 		 * userData: optional data given when bracket is created.
 		 */
-		function saveFn(data, userData, p1, p2) {
+		function saveFn(data, userData) {
 
 		  /* You probably want to do something like this
 		  jQuery.ajax("rest/"+userData, {contentType: 'application/json',
@@ -28,32 +32,25 @@
 		                                data: json})
 
 		  */
-		  $.post('/bracketmale0', {bracket: data});
+		  $.post('/bracketfemale0', {bracket: data});
 
 		}		 
 		$(function() {
-			$.get('getmale0', function(data){
+			$.get('getfemale0', function(data){
 				matchData = data;
 				var container = $('div#save .demo');
-			    container.bracket({
-			      skipGrandFinalComeback: true,
-			      init: matchData, /* data to initialize the bracket with */ 
-			      save: saveFn,
-			      disableToolbar: true,
-			      disableTeamEdit: true
+			    container.group({
+			    	init: matchData,
+			    	save: saveFn
 			  	});
 			});
 			setInterval(function(){ 
-				$.get('getmale0', function(data){
-					console.log(JSON.stringify(data));
+				$.get('getfemale0', function(data){
 					matchData = data;
 					var container = $('div#save .demo');
-				    container.bracket({
-				      skipGrandFinalComeback: true,
-				      init: matchData, /* data to initialize the bracket with */ 
-				      save: saveFn,
-				      disableToolbar: true,
-				      disableTeamEdit: true
+				    container.group({
+				    	init: matchData,
+				    	save:saveFn
 				  	});
 				});
 			}, 10000);

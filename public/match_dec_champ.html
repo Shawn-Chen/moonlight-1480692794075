@@ -28,32 +28,29 @@
 		                                data: json})
 
 		  */
-		  $.post('/bracketmale0', {bracket: data});
+		  $.post('/bracketchamp0', {bracket: data});
 
 		}		 
 		$(function() {
-			$.get('getmale0', function(data){
+			$.get('getchamp0', function(data){
 				matchData = data;
 				var container = $('div#save .demo');
 			    container.bracket({
-			      skipGrandFinalComeback: true,
+			      skipConsolationRound: true,
 			      init: matchData, /* data to initialize the bracket with */ 
 			      save: saveFn,
-			      disableToolbar: true,
-			      disableTeamEdit: true
+			      disableToolbar: true
 			  	});
 			});
 			setInterval(function(){ 
-				$.get('getmale0', function(data){
-					console.log(JSON.stringify(data));
+				$.get('getchamp0', function(data){
 					matchData = data;
 					var container = $('div#save .demo');
 				    container.bracket({
-				      skipGrandFinalComeback: true,
+				      skipConsolationRound: true,
 				      init: matchData, /* data to initialize the bracket with */ 
 				      save: saveFn,
-				      disableToolbar: true,
-				      disableTeamEdit: true
+				      disableToolbar: true
 				  	});
 				});
 			}, 10000);
